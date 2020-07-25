@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8007947698693760135}
   - component: {fileID: 8007947698693760134}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,8 @@ GameObject:
   - component: {fileID: 8007947699066325303}
   - component: {fileID: 8007947699066325300}
   - component: {fileID: 3497790928269500143}
-  m_Layer: 0
+  - component: {fileID: 7243603984305976038}
+  m_Layer: 10
   m_Name: SakeProjectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,3 +149,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SakeVisual: {fileID: 8007947698693760132}
+--- !u!70 &7243603984305976038
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8007947699066325301}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_Size: {x: 0.15, y: 0.5}
+  m_Direction: 0

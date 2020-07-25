@@ -16,9 +16,11 @@ namespace Enemy {
             animator.SetFloat(MovementX, desiredVelocity.x);
             animator.SetFloat(MovementY, desiredVelocity.y);
             animator.SetFloat(Speed, desiredVelocity.magnitude);
-            Debug.Log($"{desiredVelocity.x}/{desiredVelocity.y}/{desiredVelocity.magnitude}");
         }
 
+        public void OnHit(int value = 0) {
+            Destroy(gameObject);
+        }
     }
 
 }

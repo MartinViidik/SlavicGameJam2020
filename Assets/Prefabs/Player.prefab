@@ -233,6 +233,8 @@ MonoBehaviour:
   movementDirection: {x: 0, y: 0}
   animator: {fileID: 8136427728282433260}
   crosshair: {fileID: 8136427728533169697}
+  sakeProjectile: {fileID: 8007947699066325301, guid: 8d51efd6dc45c384e9a42b8456cfd5f5,
+    type: 3}
 --- !u!50 &8136427728996787384
 Rigidbody2D:
   serializedVersion: 4

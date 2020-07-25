@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     private float movementSpeed;
     private bool isAiming;
     private bool canShoot = true;
+    private bool alive = true;
 
     [SerializeField]
     private Animator animator;
@@ -23,20 +24,25 @@ public class PlayerController : MonoBehaviour
     private GameObject sakeProjectile;
 
     private Rigidbody2D rb;
+    private PlayerStats stats;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        stats = GetComponent<PlayerStats>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        ProcessInputs();
-        Move();
-        Animate();
-        Aim();
+        if (alive)
+        {
+            ProcessInputs();
+            Move();
+            Animate();
+            Aim();
+        }
     }
 
     void ProcessInputs()
@@ -93,19 +99,35 @@ public class PlayerController : MonoBehaviour
 
     void ShootSake()
     {
-        canShoot = false;
-        Vector2 shootingDirection = crosshair.transform.localPosition;
-        shootingDirection.Normalize();
+        if (stats.hasAmmo())
+        {
+            canShoot = false;
+            Vector2 shootingDirection = crosshair.transform.localPosition;
+            shootingDirection.Normalize();
 
-        GameObject sake = Instantiate(sakeProjectile, transform.position, Quaternion.identity);
-        sake.GetComponent<Rigidbody2D>().velocity = shootingDirection * 2;
-        sake.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.x, shootingDirection.y) * Mathf.Rad2Deg);
-        StartCoroutine("Cooldown");
+            GameObject sake = Instantiate(sakeProjectile, transform.position, Quaternion.identity);
+            sake.GetComponent<Rigidbody2D>().velocity = shootingDirection * 2;
+            sake.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.x, shootingDirection.y) * Mathf.Rad2Deg);
+            stats.SetAmmo(-1);
+
+            StartCoroutine("Cooldown");
+        }
     }
 
     private IEnumerator Cooldown()
     {
         yield return new WaitForSeconds(0.5f);
         canShoot = true;
+    }
+
+    public void SetLiveStatus(bool status)
+    {
+        alive = status;
+        if (!status)
+        {
+            rb.velocity = new Vector2(0, 0);
+            animator.SetFloat("Speed", 0);
+            Debug.Log("player dead");
+        }
     }
 }

@@ -40,6 +40,7 @@ public class PlayerStats : MonoBehaviour
         if(playerHealth == 0)
         {
             player.SetLiveStatus(false);
+            UIController.Instance.EnableDeathScreen(true);
         }
     }
 
@@ -57,7 +58,7 @@ public class PlayerStats : MonoBehaviour
         while (!cooldownActive)
         {
             yield return new WaitForSeconds(1f);
-            ModifyHealth(-1);
+            ModifyHealth(-3);
         }
     }
 

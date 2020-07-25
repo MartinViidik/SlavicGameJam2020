@@ -18,23 +18,6 @@ public class DeathScreen : MonoBehaviour
     [SerializeField]
     private GameObject ingameUI;
 
-    private static DeathScreen _instance;
-
-    public static DeathScreen Instance { get { return _instance; } }
-
-    private void Awake()
-    {
-        if (_instance != null && _instance != this)
-        {
-            Destroy(this.gameObject);
-        }
-        else
-        {
-            _instance = this;
-        }
-
-    }
-
     private void OnEnable()
     {
         int RNG = Random.Range(0, jap_proverb.Length);

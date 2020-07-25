@@ -11,6 +11,7 @@ public class PlayerCollisions : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("SakeSupplies"))
         {
+            stats.StartCoroutine("Cooldown", 1);
             stats.ModifyHealth(100);
             Destroy(collision.gameObject);
         }

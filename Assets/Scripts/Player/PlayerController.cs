@@ -1,22 +1,26 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float baseSpeed = 1.0f;
     private float basecrosshairDistance = 1.0f;
-    private float aimingPenalty = 0.5f;
-
+    private float aimingPenalty = 0.0f;
+    
     [SerializeField]
     private Vector2 movementDirection;
     private float movementSpeed;
     private bool isAiming;
+    private bool canShoot = true;
 
     [SerializeField]
     private Animator animator;
 
     [SerializeField]
     private GameObject crosshair;
+    [SerializeField]
+    private GameObject sakeProjectile;
 
     private Rigidbody2D rb;
 
@@ -66,9 +70,13 @@ public class PlayerController : MonoBehaviour
 
     void Aim()
     {
-        if (isAiming)
+        if (isAiming && isMoving())
         {
             crosshair.transform.localPosition = movementDirection * basecrosshairDistance;
+            if (Input.GetButtonDown("Fire1") && canShoot)
+            {
+                ShootSake();
+            }
         }
         crosshair.SetActive(isAiming);
     }
@@ -81,5 +89,23 @@ public class PlayerController : MonoBehaviour
         } else {
             return false;
         }
+    }
+
+    void ShootSake()
+    {
+        canShoot = false;
+        Vector2 shootingDirection = crosshair.transform.localPosition;
+        shootingDirection.Normalize();
+
+        GameObject sake = Instantiate(sakeProjectile, transform.position, Quaternion.identity);
+        sake.GetComponent<Rigidbody2D>().velocity = shootingDirection * 2;
+        sake.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.x, shootingDirection.y) * Mathf.Rad2Deg);
+        StartCoroutine("Cooldown");
+    }
+
+    private IEnumerator Cooldown()
+    {
+        yield return new WaitForSeconds(0.5f);
+        canShoot = true;
     }
 }

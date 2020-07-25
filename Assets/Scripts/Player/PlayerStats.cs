@@ -40,18 +40,4 @@ public class PlayerStats : MonoBehaviour
         }
     }
 
-    public bool hasAmmo()
-    {
-        if(playerAmmo > 0)
-        {
-            return true;
-        } else {
-            return false;
-        }
-    }
-    public void SetAmmo(int amount)
-    {
-        playerAmmo += amount;
-    }
-
 }

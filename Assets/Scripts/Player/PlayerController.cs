@@ -99,19 +99,15 @@ public class PlayerController : MonoBehaviour
 
     void ShootSake()
     {
-        if (stats.hasAmmo())
-        {
-            canShoot = false;
-            Vector2 shootingDirection = crosshair.transform.localPosition;
-            shootingDirection.Normalize();
+        canShoot = false;
+        Vector2 shootingDirection = crosshair.transform.localPosition;
+        shootingDirection.Normalize();
 
-            GameObject sake = Instantiate(sakeProjectile, transform.position, Quaternion.identity);
-            sake.GetComponent<Rigidbody2D>().velocity = shootingDirection * 2;
-            sake.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.x, shootingDirection.y) * Mathf.Rad2Deg);
-            stats.SetAmmo(-1);
+        GameObject sake = Instantiate(sakeProjectile, transform.position, Quaternion.identity);
+        sake.GetComponent<Rigidbody2D>().velocity = shootingDirection * 2;
+        sake.transform.Rotate(0, 0, Mathf.Atan2(shootingDirection.x, shootingDirection.y) * Mathf.Rad2Deg);
 
-            StartCoroutine("Cooldown");
-        }
+        StartCoroutine("Cooldown");
     }
 
     private IEnumerator Cooldown()

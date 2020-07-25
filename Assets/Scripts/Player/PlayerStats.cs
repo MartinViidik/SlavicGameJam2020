@@ -33,6 +33,7 @@ public class PlayerStats : MonoBehaviour
     {
         playerHealth += amount;
         playerHealth = Mathf.Clamp(playerHealth, 0, 100);
+        SakeUI.Instance.UpdateSakeFill(playerHealth);
 
         Debug.Log("Player health at: " + playerHealth);
 

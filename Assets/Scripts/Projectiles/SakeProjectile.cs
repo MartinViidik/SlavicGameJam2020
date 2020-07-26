@@ -21,6 +21,9 @@ public class SakeProjectile : MonoBehaviour {
             enemyController.OnHit();
         }
         Destroy(gameObject);
+            if (other.gameObject.GetComponent<PlayerController>()){
+            Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
+        }
     }
 
 }

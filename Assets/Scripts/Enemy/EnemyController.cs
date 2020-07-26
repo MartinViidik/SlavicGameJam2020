@@ -13,7 +13,6 @@ namespace Enemy {
         private static readonly int Speed = Animator.StringToHash("speed");
 
         private GameObject player;
-        private bool cooldown = false;
 
         private void Awake() {
             player = GameObject.FindGameObjectWithTag("Player");

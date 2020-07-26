@@ -13,6 +13,8 @@ public class PauseScreen : MonoBehaviour
 
     public void Exit()
     {
+        Time.timeScale = 1.0f;
+        AudioListener.volume = 1;
         LevelChanger.Instance.LoadLevel(0);
     }
 }

@@ -7,16 +7,22 @@ public class Door : MonoBehaviour
     private Animator anim;
     private bool open;
 
+    private AudioSource ac;
+    public AudioClip doorOpen;
+    public AudioClip doorClosed;
+
     private void Awake()
     {
         open = false;
         anim = GetComponent<Animator>();
+        ac = GetComponent<AudioSource>();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!open && isValid(collision))
         {
+            ac.PlayOneShot(doorOpen);
             open = true;
             anim.SetBool("open", open);
         }
@@ -25,6 +31,7 @@ public class Door : MonoBehaviour
     {
         if (open && isValid(collision))
         {
+            ac.PlayOneShot(doorClosed);
             open = false;
             anim.SetBool("open", open);
         }

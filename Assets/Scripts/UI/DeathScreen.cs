@@ -79,7 +79,6 @@ public class DeathScreen : MonoBehaviour {
         var proverb = proverbs[Random.Range(0, proverbs.Count)];
         jap.text = proverb.ProverbText;
         eng.text = proverb.Translation;
-        ingameUI.SetActive(false);
     }
 
     private class Proverb {

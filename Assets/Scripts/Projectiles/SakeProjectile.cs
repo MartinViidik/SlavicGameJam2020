@@ -1,7 +1,5 @@
-﻿using System;
-using Enemy;
+﻿using Enemy;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 public class SakeProjectile : MonoBehaviour {
 

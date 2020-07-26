@@ -34,4 +34,9 @@ public class UIController : MonoBehaviour
         AudioListener.volume = 0;
     }
 
+    public void LoadLevel(int level)
+    {
+        LevelChanger.Instance.LoadLevel(level);
+    }
+
 }

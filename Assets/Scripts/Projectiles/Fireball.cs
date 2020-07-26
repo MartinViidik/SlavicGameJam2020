@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Enemy;
+using UnityEngine;
 
 namespace Projectiles {
 
@@ -19,7 +20,7 @@ namespace Projectiles {
 
         private void OnCollisionEnter2D(Collision2D other) {
             var playerStats = other.gameObject.GetComponent<PlayerStats>();
-            Destroy(gameObject);
+            Destroy(gameObject);    
             if (!playerStats) return;
             playerStats.ModifyHealth(20);
             

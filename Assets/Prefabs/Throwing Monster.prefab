@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 3637324933796229892}
   - component: {fileID: 4805426350697712450}
   - component: {fileID: 6082149646181330344}
+  - component: {fileID: 7904466110196541126}
   m_Layer: 9
   m_Name: Throwing Monster
   m_TagString: Enemy
@@ -375,3 +376,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7904466110196541126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3637324933796229890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03ed771be6a4cb58d51345ebc14f1a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireballPrefab: {fileID: 5095363803208168072, guid: 5f7433c67f4bf69479e9835037ed29f3,
+    type: 3}
+  aimBot: {fileID: 1014931710541195843}
+  player: {fileID: 0}

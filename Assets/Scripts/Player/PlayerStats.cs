@@ -39,7 +39,7 @@ public class PlayerStats : MonoBehaviour
 
         Debug.Log("Player health at: " + playerHealth);
 
-        if(playerHealth == 0)
+        if(playerHealth == 0 && player.IsAlive())
         {
             player.SetLiveStatus(false);
             SoundManager.PlaySound(playerDeathSound);

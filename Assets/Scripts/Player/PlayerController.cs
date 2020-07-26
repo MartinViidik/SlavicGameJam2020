@@ -130,4 +130,8 @@ public class PlayerController : MonoBehaviour
             Debug.Log("player dead");
         }
     }
+
+    public bool IsAlive() {
+        return alive;
+    }
 }

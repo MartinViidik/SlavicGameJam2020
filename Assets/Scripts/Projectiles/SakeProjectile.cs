@@ -15,14 +15,16 @@ public class SakeProjectile : MonoBehaviour {
         transform.Rotate(0, 0, (120 * rotationModifier) * Time.deltaTime);
     }
 
-    private void OnCollisionEnter2D(Collision2D other) {
-        var enemyController = other.gameObject.GetComponent<EnemyController>();
-        if (enemyController) {
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        var enemyController = collision.gameObject.GetComponent<EnemyController>();
+        if (enemyController)
+        {
             enemyController.OnHit();
         }
-        Destroy(gameObject);
-            if (other.gameObject.GetComponent<PlayerController>()){
-            Physics2D.IgnoreCollision(other.collider, GetComponent<Collider2D>());
+        if(collision.gameObject.tag != "Player" || collision.gameObject.tag == "SakeSupplies")
+        {
+            Destroy(gameObject);
         }
     }
 

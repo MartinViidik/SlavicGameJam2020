@@ -23,7 +23,7 @@ public class Door : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (isValid(collision))
+        if (open && isValid(collision))
         {
             open = false;
             anim.SetBool("open", open);

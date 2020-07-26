@@ -52,6 +52,10 @@ public class PlayerController : MonoBehaviour
         movementDirection.Normalize();
 
         isAiming = Input.GetButton("Fire2");
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            UIController.Instance.PauseGame();
+        }
     }
 
     void Move()

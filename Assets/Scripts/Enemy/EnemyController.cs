@@ -1,5 +1,4 @@
 ﻿using Pathfinding;
-using System.Collections;
 using UnityEngine;
 
 namespace Enemy {
@@ -19,7 +18,6 @@ namespace Enemy {
         private void Awake() {
             player = GameObject.FindGameObjectWithTag("Player");
             setter.target = player.transform;
-            StartCoroutine("Cooldown");
         }
 
         void FixedUpdate() {
@@ -29,13 +27,8 @@ namespace Enemy {
                 animator.SetFloat(MovementX, desiredVelocity.x);
                 animator.SetFloat(MovementY, desiredVelocity.y);
             }
-
             animator.SetFloat(Speed, desiredVelocity.magnitude);
-            if(GetDistanceToPlayer() < 1 && !cooldown)
-            {
-                player.GetComponent<PlayerStats>().ModifyHealth(-10);
-                cooldown = true;
-            }
+
         }
 
         public void OnHit(int value = 0) {
@@ -47,20 +40,6 @@ namespace Enemy {
             return desiredVelocity.x == 0 &&
                    // ReSharper disable once CompareOfFloatsByEqualityOperator        
                    desiredVelocity.y == 0;
-        }
-
-        float GetDistanceToPlayer()
-        {
-            return Vector2.Distance(transform.position, player.transform.position);
-        }
-
-        private IEnumerator Cooldown()
-        {
-            while (cooldown)
-            {
-                yield return new WaitForSeconds(1f);
-                cooldown = false;
-            }
         }
 
     }

@@ -1,4 +1,5 @@
 ﻿using Pathfinding;
+using UI;
 using UnityEngine;
 
 namespace Enemy {
@@ -8,11 +9,15 @@ namespace Enemy {
         public AIPath aiPath;
         public Animator animator;
         public AIDestinationSetter setter;
+
+        public int scoreValue = 10;
         private static readonly int MovementX = Animator.StringToHash("movementX");
         private static readonly int MovementY = Animator.StringToHash("movementY");
         private static readonly int Speed = Animator.StringToHash("speed");
 
         private GameObject player;
+        
+        
 
         private void Awake() {
             player = GameObject.FindGameObjectWithTag("Player");
@@ -32,6 +37,7 @@ namespace Enemy {
 
         public void OnHit(int value = 0) {
             Destroy(gameObject);
+            ScoreBoard.Instance.AddScore(scoreValue);
         }
 
         private static bool IsStanding(Vector3 desiredVelocity) {

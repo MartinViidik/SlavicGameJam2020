@@ -238,7 +238,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3637324933796229890}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.155, y: -0.203, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1014931710541195843}
@@ -391,4 +391,3 @@ MonoBehaviour:
   fireballPrefab: {fileID: 5095363803208168072, guid: 5f7433c67f4bf69479e9835037ed29f3,
     type: 3}
   aimBot: {fileID: 1014931710541195843}
-  player: {fileID: 0}

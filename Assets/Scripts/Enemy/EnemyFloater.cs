@@ -6,7 +6,7 @@ namespace Enemy {
     public class EnemyFloater : MonoBehaviour {
 
         private double frequency = 3;
-        private double magnitude = 0.3;
+        private double magnitude = 0.1;
 
         void FixedUpdate() {
             var tf = transform;

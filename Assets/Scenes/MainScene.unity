@@ -5540,6 +5540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95dc154c2d14a754eb3a5e00fee4021f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickupSakeSound: {fileID: 8300000, guid: a9ed5aa7d9ad82d458a63e7c065f723b, type: 3}
 --- !u!4 &2012148034 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8136427728996787387, guid: da6a17fd2133e814bbb7fd42bab51fda,

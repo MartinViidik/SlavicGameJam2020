@@ -282,6 +282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerHealth: 100
   playerAmmo: 5
+  playerDeathSound: {fileID: 8300000, guid: e764c1ead3354a74c9d3ff02df8f9205, type: 3}
 --- !u!50 &8136427728996787384
 Rigidbody2D:
   serializedVersion: 4

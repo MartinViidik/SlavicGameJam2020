@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using Utility;
 
 public class PlayerStats : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerStats : MonoBehaviour
     private PlayerController player;
     private bool cooldownActive = false;
 
+    public AudioClip playerDeathSound;
     private void Awake()
     {
         player = GetComponent<PlayerController>();
@@ -40,6 +42,7 @@ public class PlayerStats : MonoBehaviour
         if(playerHealth == 0)
         {
             player.SetLiveStatus(false);
+            SoundManager.PlaySound(playerDeathSound);
             UIController.Instance.EnableDeathScreen(true);
         }
     }

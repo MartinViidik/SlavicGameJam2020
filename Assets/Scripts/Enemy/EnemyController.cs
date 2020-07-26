@@ -1,6 +1,7 @@
 ﻿using Pathfinding;
 using UI;
 using UnityEngine;
+using Utility;
 
 namespace Enemy {
 
@@ -9,6 +10,8 @@ namespace Enemy {
         public AIPath aiPath;
         public Animator animator;
         public AIDestinationSetter setter;
+
+        public AudioClip deathSound;
 
         public int scoreValue = 10;
         private static readonly int MovementX = Animator.StringToHash("movementX");
@@ -38,6 +41,7 @@ namespace Enemy {
         public void OnHit(int value = 0) {
             Destroy(gameObject);
             ScoreBoard.Instance.AddScore(scoreValue);
+            SoundManager.PlaySound(deathSound);
         }
 
         private static bool IsStanding(Vector3 desiredVelocity) {

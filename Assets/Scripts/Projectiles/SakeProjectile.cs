@@ -1,14 +1,20 @@
-﻿using Enemy;
+﻿using System.Collections.Generic;
+using Enemy;
 using UnityEngine;
+using Utility;
 
 public class SakeProjectile : MonoBehaviour {
 
     [SerializeField] private GameObject SakeVisual;
     private float rotationModifier;
+    
+    public List<AudioClip> sakeThrowSound;
+    public List<AudioClip> sakeBreakSound;
 
     private void Awake() {
         Destroy(gameObject, 2f);
         rotationModifier = Random.Range(1, 3);
+        SoundManager.PlaySoundFromList(sakeThrowSound);
     }
 
     private void Update() {
@@ -22,10 +28,8 @@ public class SakeProjectile : MonoBehaviour {
         {
             enemyController.OnHit();
         }
-        if(collision.gameObject.tag != "Player" || collision.gameObject.tag == "SakeSupplies")
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
+        SoundManager.PlaySoundFromList(sakeBreakSound);
     }
 
 }

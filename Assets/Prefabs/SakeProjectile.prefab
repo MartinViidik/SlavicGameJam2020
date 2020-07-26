@@ -149,6 +149,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SakeVisual: {fileID: 8007947698693760132}
+  sakeThrowSound:
+  - {fileID: 8300000, guid: 591db04a455f8f14d8d5ec49e9976c2d, type: 3}
+  - {fileID: 8300000, guid: d0e63a1d22b831e46a1759854742fb2b, type: 3}
+  - {fileID: 8300000, guid: 120d49bed735f024db2823824aa57726, type: 3}
+  sakeBreakSound:
+  - {fileID: 8300000, guid: ac77ff885e455ca4b914435c462d4468, type: 3}
+  - {fileID: 8300000, guid: 6c2686062434ea0489bd412043142866, type: 3}
 --- !u!70 &7243603984305976038
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

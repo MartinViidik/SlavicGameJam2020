@@ -116,6 +116,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55db38eebfe41f9895e134fe1713a00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fireballFireSound:
+  - {fileID: 8300000, guid: ea2bcfc79227e5542b80d1302bd75f93, type: 3}
+  - {fileID: 8300000, guid: 2ad669ecaa9d55344843bef054e69486, type: 3}
+  - {fileID: 8300000, guid: c4c4fe223762d3b4d945d13a1ca794cb, type: 3}
+  fireballHitSound:
+  - {fileID: 8300000, guid: 3920b4004a8f8664687876bad01b2454, type: 3}
 --- !u!50 &5095363803208168078
 Rigidbody2D:
   serializedVersion: 4

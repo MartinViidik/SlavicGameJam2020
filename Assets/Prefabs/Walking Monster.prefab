@@ -246,6 +246,8 @@ MonoBehaviour:
   aiPath: {fileID: 4874568499732425156}
   animator: {fileID: 7529009410960795700}
   setter: {fileID: 4874568499732425154}
+  deathSound: {fileID: 8300000, guid: c3a673c8afd6c81428d1ed379cf7e670, type: 3}
+  scoreValue: 10
 --- !u!70 &3706427543363506567
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

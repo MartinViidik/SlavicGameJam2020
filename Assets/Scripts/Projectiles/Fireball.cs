@@ -22,7 +22,7 @@ namespace Projectiles {
             var playerStats = other.gameObject.GetComponent<PlayerStats>();
             Destroy(gameObject);    
             if (!playerStats) return;
-            playerStats.ModifyHealth(20);
+            playerStats.ModifyHealth(-20);
             
         }
 

@@ -1053,7 +1053,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1677703551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1066,7 +1066,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 972336aab34f4f149e0015563a58f2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireballPrefab: {fileID: 5095363803208168072, guid: 5f7433c67f4bf69479e9835037ed29f3,
+  fireballPrefab: {fileID: 4874568499732425159, guid: cca2effb067943e48b83fca5c94b52a2,
     type: 3}
 --- !u!4 &1677703553
 Transform:

@@ -9,6 +9,8 @@ namespace Projectiles {
         public List<AudioClip> fireballFireSound;
         public List<AudioClip> fireballHitSound;
 
+        private const float FireballSpeed = 1.5f;
+
         private void Awake() {
             Destroy(gameObject, 3f);
             RotateTowardsAndFire(GameObject.FindGameObjectWithTag("Player").transform.position);
@@ -20,7 +22,7 @@ namespace Projectiles {
             diff.Normalize();
             var rotZ = Mathf.Atan2(diff.y, diff.x) * Mathf.Rad2Deg;
             transform.rotation = Quaternion.Euler(0f, 0f, rotZ - 90);
-            GetComponent<Rigidbody2D>().AddForce(transform.up * 3, ForceMode2D.Impulse);
+            GetComponent<Rigidbody2D>().AddForce(transform.up * FireballSpeed, ForceMode2D.Impulse);
         }
 
         private void OnCollisionEnter2D(Collision2D other) {

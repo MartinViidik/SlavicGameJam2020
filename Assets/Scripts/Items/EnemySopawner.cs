@@ -8,10 +8,13 @@ public class EnemySopawner : MonoBehaviour {
 
     [SerializeField] public List<GameObject> monstersToSpawn;
 
-    public float waitTime = 1f;
+    public float waitTime = 3f;
     private bool cooldown;
 
-    
+    private void Awake() {
+        StartCoroutine("Cooldown");
+    }
+
     void FixedUpdate() {
         if (cooldown) return;
         var RNG = Random.Range(0, monstersToSpawn.Count);

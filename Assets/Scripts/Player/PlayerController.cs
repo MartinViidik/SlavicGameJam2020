@@ -5,8 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField]
     private float baseSpeed = 1.0f;
-    private float basecrosshairDistance = 1.0f;
-    private float aimingPenalty = 0.0f;
+    private float aimingPenalty = 0.75f;
     
     [SerializeField]
     private Vector2 movementDirection;
@@ -51,6 +50,11 @@ public class PlayerController : MonoBehaviour
         movementSpeed = Mathf.Clamp(movementDirection.magnitude, 0.0f, 1.0f);
         movementDirection.Normalize();
 
+        if (Input.GetButtonDown("Fire1"))
+            isAiming = true;
+        if (Input.GetButtonUp("Fire1"))
+            isAiming = false;
+
         isAiming = Input.GetButton("Fire2");
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -64,13 +68,12 @@ public class PlayerController : MonoBehaviour
         {
             movementSpeed *= aimingPenalty;
         }
-
         rb.velocity = movementDirection * movementSpeed * baseSpeed;
     }
 
     void Animate()
     {
-        if(isMoving())
+        if(isMoving() && !isAiming)
         {
             animator.SetFloat("Horizontal", movementDirection.x);
             animator.SetFloat("Vertical", movementDirection.y);
@@ -80,9 +83,16 @@ public class PlayerController : MonoBehaviour
 
     void Aim()
     {
-        if (isAiming && isMoving())
+        if (isAiming)
         {
-            crosshair.transform.localPosition = movementDirection * basecrosshairDistance;
+
+            Vector3 worldPosition =  Camera.main.ViewportToWorldPoint(new Vector3(Input.mousePosition.x / Screen.width, Input.mousePosition.y / Screen.height, 10.0f));
+
+            animator.SetFloat("Horizontal", Mathf.Clamp(worldPosition.x - 2, -1, 1));
+            animator.SetFloat("Vertical", Mathf.Clamp(worldPosition.y + 1.5f, -1, 1));
+
+            crosshair.transform.position = worldPosition;
+
             if (Input.GetButtonDown("Fire1") && canShoot)
             {
                 ShootSake();

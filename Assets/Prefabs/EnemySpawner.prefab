@@ -46,4 +46,4 @@ MonoBehaviour:
   monstersToSpawn:
   - {fileID: 3637324933796229890, guid: 16f387b48427d7b4bb5240160ee4c70f, type: 3}
   - {fileID: 4874568499732425159, guid: cca2effb067943e48b83fca5c94b52a2, type: 3}
-  waitTime: 10
+  waitTime: 100
